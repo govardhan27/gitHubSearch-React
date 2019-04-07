@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
 
-export default App;
+import WithHandlers from './components/WithHandlers';
+import Form from './components/Forms/Form';
+import NewForm from './components/Forms/WithState';
+import GitHubSearch from './components/gitHub/index';
+
+export default () => (
+	<Router>
+		<Route path='/' exact component={WithHandlers} />
+		<Route path='/form' exact component={Form} />
+		<Route path='/new' exact component={NewForm} />
+		<Route path='/search' exact component={GitHubSearch} />
+	</Router>
+)
